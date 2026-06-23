@@ -1,0 +1,5 @@
+# robots.txt for Thangalatha Finance
+User-agent: *
+Allow: /
+
+Sitemap: https://www.thangalathafinance.com/sitemap.xml

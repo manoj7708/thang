@@ -1,0 +1,60 @@
+.floating-btns {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 90;
+}
+
+.floating-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.floating-btn--whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.floating-btn--call {
+  background: var(--gradient-gold);
+  color: #000;
+}
+
+.floating-btn:hover {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- Pulse ring ---- */
+.floating-btn__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.45);
+  animation: pulse-ring 1.8s ease-out infinite;
+  z-index: -1;
+}
+
+.floating-btn__pulse--gold {
+  background: rgba(212, 175, 55, 0.45);
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  80%  { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .floating-btns { bottom: 18px; right: 14px; gap: 10px; }
+  .floating-btn { width: 52px; height: 52px; }
+}

@@ -1,0 +1,191 @@
+/* ============================================
+   SERVICES PAGE
+   ============================================ */
+
+/* ---- Hero ---- */
+.services-hero {
+  position: relative;
+  text-align: center;
+  padding: 40px 0 30px;
+  background: radial-gradient(ellipse at top, #1a1407 0%, #000 65%);
+  overflow: hidden;
+}
+.services-hero__glow {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+.services-eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.78rem;
+  color: var(--color-gold);
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.services-hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.services-hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+  position: relative;
+}
+
+/* ---- Grid ---- */
+.services-grid-section {
+  padding: 40px 0 60px;
+  background: #000;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.service-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out), border-color 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: transparent;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8), 0 0 50px -10px rgba(212, 175, 55, 0.35);
+}
+
+.service-card:hover::before { opacity: 1; }
+
+.service-card__inner {
+  padding: 38px 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--gradient-gold);
+  color: #000;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-gold);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.service-card:hover .service-card__icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.service-card h3 {
+  font-size: 1.32rem;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-card ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.service-card__bullet {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+/* ---- CTA ---- */
+.services-cta {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #1c1407 0%, #050505 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.services-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+}
+
+.services-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.services-cta h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 8px;
+}
+
+.services-cta p {
+  color: var(--color-text-muted);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .services-cta__inner { flex-direction: column; text-align: center; }
+}

@@ -1,0 +1,18 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-black);
+  overflow-x: hidden;
+}
+
+.page-wrap {
+  flex: 1;
+  width: 100%;
+  padding-top: 80px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .page-wrap { padding-top: 70px; }
+}
